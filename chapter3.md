@@ -1,17 +1,22 @@
 # chapter3
 
-#### 객체지향 프로그래밍
+#### 콜백
 
-- 클래스와 객체란?
-- 상속이란?
-- 인터페이스란?
-- 객체지향 프로그래밍이란?
-- 객체지향의 장/단점?
-- 추상화란?
-- 객체지향 3요소 5원칙
-- AOP란?
-
+- 콜백이란?
+- 콜백 예제
+- 자바와 자바스크립트의 구현방법 차이
+- Array.prototype.reverseForeach  
+  자신의 생각으로 구현해보기  
+  현재 순환 인덱스를 반환하기  
+  콜백함수의 반환값이 true면, 반복 중단하기
+  
 <br>
 
-처음 프로그램밍을 접하면 굉장히 어려운 내용입니다.  
-각자 본인만의 정의를 내리고, 예제를 잘 작성하길 바랍니다.
+#### this
+
+- this란?
+- Function.prototype.call`javascript`
+- Function.prototype.apply
+- Function.prototype.bind
+
+<br>
