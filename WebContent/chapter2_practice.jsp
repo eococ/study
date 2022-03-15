@@ -84,8 +84,8 @@
 		
 		
 		/**
-		Array.prototype.push()
-		배열의 마지막에 하나 이상의 새로운 요소를 추가한 후, 변경된 배열의 길이를 반환한다.
+			Array.prototype.push()
+			배열의 마지막에 하나 이상의 새로운 요소를 추가한 후, 변경된 배열의 길이를 반환한다.
 		*/		
 		var arr = [1,2,3];
 		
@@ -97,8 +97,8 @@
 		
 		
 		/**
-		Array.prototype.pop
-		배열에서 마지막 요소를 제거하고 그 요소를 반환합니다.
+			Array.prototype.pop
+			배열에서 마지막 요소를 제거하고 그 요소를 반환합니다.
 		*/				
 		var arr = [1,2,3,4,5,6,7,8,9];
 		arr.pop();
@@ -109,8 +109,8 @@
 		
 		
 		/**
-		Array.prototype.unshift
-		새로운 요소를 배열의 맨 앞쪽에 추가하고, 새로운 길이를 반환한다.
+			Array.prototype.unshift
+			새로운 요소를 배열의 맨 앞쪽에 추가하고, 새로운 길이를 반환한다.
 		*/			
 		var arr = [1,2,3,4,5];
 		arr.unshift(0);
@@ -121,8 +121,8 @@
 		
 		
 		/**
-		Array.prototype.shift
-		배열에서 첫 번째 요소를 제거하고, 제거된 요소를 반환한다.
+			Array.prototype.shift
+			배열에서 첫 번째 요소를 제거하고, 제거된 요소를 반환한다.
 		*/
 		var arr2 = ['하나','둘','셋','넷','다섯'];
 		arr2.shift();
@@ -133,8 +133,8 @@
 		
 		
 		/**
-		Array.prototype.fill
-		인수로 전달받은 값을 배열의 처음부터 끝까지 요소로 채운다.
+			Array.prototype.fill
+			인수로 전달받은 값을 배열의 처음부터 끝까지 요소로 채운다.
 		*/
 		var arr = [1,2,3,4,5];
 		
@@ -153,11 +153,11 @@
 		
 		
 		/**
-		Array.prototype.forEach
-		배열의 값을 하나씩 받아서 내가 작성한 function을 실행한다.
-		 forEach는 제공받은 function을 array의 각 element마다 실행해주기만한다.
-		 function의 결과를 return 해주지 않는다. forEach의 return 값은 undefined다.
-		 forEach는 throw(예외)를 발생시키지 않으면 중간에 반복을 종료할 수 없다. 
+			Array.prototype.forEach
+			배열의 값을 하나씩 받아서 내가 작성한 function을 실행한다.
+			 forEach는 제공받은 function을 array의 각 element마다 실행해주기만한다.
+			 function의 결과를 return 해주지 않는다. forEach의 return 값은 undefined다.
+			 forEach는 throw(예외)를 발생시키지 않으면 중간에 반복을 종료할 수 없다. 
 		*/	
 		var arr = [1,2,3];
 		
@@ -182,8 +182,8 @@
 
 		
 		/**
-		Array.prototype.find
-		주어진 판별 함수를 만족하는 첫번째 요소의 값을 반환한다. 그런 요소가 없으면 undefined 반환
+			Array.prototype.find
+			주어진 판별 함수를 만족하는 첫번째 요소의 값을 반환한다. 그런 요소가 없으면 undefined 반환
 		*/		
 		var arr = [1,2,3,4,5,6,7,8];
 		var result = arr.find(num => num > 5);
@@ -203,12 +203,13 @@
 
 		
 		/**
-		Array.prototype.filter
-		주어진 함수의 테스트를 통과하는 모든 요소들을 모아 새로운 배열로 반환한다.
+			Array.prototype.filter
+			주어진 함수의 테스트를 통과하는 모든 요소들을 모아 새로운 배열로 반환한다.
 		*/			
 		
 		var arr = [12, 5, 8, 130, 44];
 		var result = arr.filter(num => num > 20);
+		
 		console.log("filter : " + result);
 		
 		//json 형식에서 filter 사용
@@ -222,23 +223,142 @@
 		  { id: null },
 		  { id: NaN },
 		];
+		var result = arr.filter(function(num){
+						console.log("num.id" + num.id);
+						return num.id > 10;
+					});
+		console.log("filter2 : " + JSON.stringify(result));
+
 		
-		function filterId(num){
-			return arr.id > 10;
+		
+		
+		/**
+			Array.prototype.map
+			배열 내의 모든 요소 각각에 대하여 주어진 함수를 호출한 결과를 모아 새로운 배열을 반환한다
+		*/	
+		var arr = [1,2,3,6];
+		var result = arr.map(x => x * 2);
+		
+		console.log("map result : " + result);
+		
+		var result2 = arr.map(function(arr){
+			return arr + "문자";
+		});
+		
+		console.log("map2 : "  + result2);
+		
+		/**
+			Array.prototype.some
+			배열 안의 어떤 요소라도 주어진 판별 함수를 통과하는지 테스트한다.
+			(callback 함수를 통해 해당 배열 안에 맞는 조건이 하나라도 존재하면 true, 존재하지 않으면 false 반환)
+			- 빈 배열을 대상으로 실행하면 무조건 false를 반환한다.
+			- for문보다 속도가 빠르다.
+		*/
+		var array = [1,2,3,6,8,4];
+		
+		var result = array.some(function(num){
+						return num == 7;
+					});
+		console.log("some : " + result);
+		
+		var result2 = array.some(function(num){
+							return num == 6;	
+					  });
+		console.log("some 2 : " + result2);
+		
+		
+		function result3 (){
+			var result5 =  array.some(function(num){
+				num == '5';
+			});
+			return result5;
 		}
 		
-		var result = arr.filter(filterId);
-		console.log("filter2 : " + result);
+		var result = result3();
+		console.log("result6 : " + result);
+		
 
+		
+		/**
+			Array.prototype.every
+			메서드는 배열 안의 모든 요소가 주어진 판별 함수를 통과하는지 테스트한다. Boolean 값을 반환한다.
+			- 빈 배열에서 호출하면 무조건 true를 반환한다.
+		*/		
+		var arr = [2,5,3,46,76,4];
+		
+		//인라인 콜백 함수
+		var arrEvery = arr.every(function(num){
+			return num > 1;
+		});
+		console.log("arrEvery : " + arrEvery);	
+		
+		//콜백함수
+		function callbackFn(num){
+			return num > 5;
+		}
+		var result1 = arr.every(callbackFn);
+		console.log("result1 : " + result1);
+		
+		//화살표 함수
+		arr.every(num => {
+			 return num > 1;
+		});
+		
 	
+		/**
+			Array.prototype.reduce
+			
+			
+			 * 리듀서 함수는 네 개의 인자를 가진다.
+			 	1. 누산기(accumulator)
+			 	2. 현재 값(currentValue)
+				3. 현재 인덱스(currentIndex)
+				4. 원본 배열(array)
+				
+				리듀서 함수의 반환 값은 누산되므로 최종 결과는 하나의 값이 된다.
+				
+			 * 매개변수
+			 	- callback
+			 		: 배열의 각 요소에 대해 실행할 함수. 다음 네가지 인수를 받는다
+			 			1. 누산기(accumulator) : 누산기는 콜백의 반환값을 누적한다. 콜백의 첫 번째 호출이면서 
+			 							 		 initialValue를 제공한 경우에는 initialValue이 초기값이다.
+			 		    2. 현재 값(currentValue) : 처리할 현재 요소
+			 		    3. 현재 인덱스(currentIndex) : 처리할 현재 요소의 인덱스. 인덱스 1부터 시작하나 , 
+			 		    							   initialValue를 제공한 경우에는 인덱스 0부터 시작한다.
+			 		    4. 	원본 배열(array) : reduce()를 호출한 배열
+			 		    
+			  	 - initialValue 
+			  	 	 : initialValue 제공 O ->  accumulator는 initialValue와 동일
+			  	 	   initialValue 제공 X -> 배열의 인덱스 0의 값과 같음 
+			  	 	   	** 빈 배열에서 초기값 없이 reduce()를 호출하면 typeError가 발생한다.
+			  	 	    ** 배열의 요소가 하나 뿐이면서 initialValue를 제공하지 않은 경우, 또는 initialValue는 주어졌지만 배열이 빈 경우엔
+			  	 	       그 값을 callback 호출 없이 반환한다.
+			 	
+		*/	
 		
 		
+		var array = [5,6,7,8];
 		
+		// initialValue 없는 경우
+		var result1 = array.reduce(function(accumulator, currentValue, currentIndex, array){
+						return accumulator + currentValue;
+					  }); 		 
+		console.log("reduce1 : " + result1);
 		
+		// initialValue 있는 경우
+		var result2 = array.reduce(function(accumulator, currentValue, currentIndex, array){
+			return accumulator + currentValue;
+		  }, 10); 		 
+		console.log("reduce2 : " + result2);		
 		
-		
-		
-		
+		//객체 배열에서의 값 합산
+		//객체로 이루어진 배열에 들어 있는 값을 합산하기 위해서는 반드시 초기값을 주어야 함.
+		var initialValue = 0;
+		var sum = [{x:1},{x:2},{x:3}].reduce(function(accumulator, currentValue){
+			return accumulator + currentValue.x;
+		},initialValue);
+		console.log("reduce3 : " + sum);
+			
 		
 	</script>
 
