@@ -3,7 +3,17 @@
 #### 콜백
 
 - 콜백이란?
+	> 콜백 함수는 다른 함수의 매개변수로 함수를 전달하고 특정 이벤트가 발생한 후 매개변수로
+	> 전달한 함수가 다시 호출되는 것을 의미한다.
+	
 - 콜백 예제
+```javascript
+	function whatYourName(name, callback){
+		console.log('name : ', name);
+		callback();
+	} 	
+```
+
 - 자바와 자바스크립트의 구현방법 차이
 - Array.prototype.reverseForeach  
   자신의 생각으로 구현해보기  
