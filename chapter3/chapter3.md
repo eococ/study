@@ -12,7 +12,15 @@
 		console.log('name : ', name);
 		callback();
 	} 	
+	function finishFunc(){
+		console.log('finish function');
+	}
+	whatYourName('jimin',finishFunc);
+	<output>
+	name : jimin
+	finish function
 ```
+	
 
 - 자바와 자바스크립트의 구현방법 차이
 - Array.prototype.reverseForeach  
