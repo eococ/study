@@ -8,8 +8,35 @@
 </head>
 <body>
 	<script type="text/javascript">
+
+		/**
+			Array.prototype.indexOf()
+			호출한 String 객체에서 주어진 값과 일치하는 첫번째 인덱스를 반환한다. 일치하는 값이 없으면
+			-1을 반환한다.
+				- 대소문자 구분함
+				
+		*/	
+		var str = 'happy new year';
+		var result = str.indexOf('a');
+		var result2 = str.indexOf('new');
+		
+		//indexOf()를 사용하여 문자열 내의 특정 문자의 갯수 세기
+		var findP = 'p';
+		var count = 0;
+		var pos = str.indexOf(findP);
+		
+		while(pos !== -1){
+			count++;
+			pos = str.indexOf(findP, pos  +1);
+			
+		}
+		
+		console.log("result : " + result + ", result2 : " + result2 + ", result3 :" + count);
+		
+		
+		
 	
-	/**
+		/**
 			Array.prototype.slice()
 			slice() 메서드는 어떤 배열의 begin부터 end까지 (end 미포함)에 대한 얕은 복사본을
 			새로운 배열 객체로 반환한다. 원본 배열은 바뀌지 않는다.
@@ -339,9 +366,11 @@
 		
 		var array = [5,6,7,8];
 		
+		
 		// initialValue 없는 경우
-		var result1 = array.reduce(function(accumulator, currentValue, currentIndex, array){
-						return accumulator + currentValue;
+		var result1 = array2.reduce(function(accumulator, currentValue, currentIndex, array){
+						return accumulator +
+						currentValue;
 					  }); 		 
 		console.log("reduce1 : " + result1);
 		
