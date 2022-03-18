@@ -1,6 +1,7 @@
-# chapter2
+chapter2
 
-<데이터 타입>
+
+# 데이터 타입
 
 1) 기본 타입 <br>
 	- 정수 타입(byte, short, int, long) 
