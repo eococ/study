@@ -1,7 +1,5 @@
 
 ## 콜백
-
-### 콜백이란?
 > 콜백 함수는 다른 함수의 매개변수로 함수를 전달하고 특정 이벤트가 발생한 후 매개변수로 <br>
 > 전달한 함수가 다시 호출되는 것을 의미한다.
 > [콜백 예제](https://github.com/eococ/study/blob/main/WebContent/chapter3_practice.jsp)
@@ -24,10 +22,11 @@
 >this의 값이 결정된다는 뜻이다.
  
  
-##### 1. 일반 함수 실행 방식
+#### 1. 일반 함수 실행 방식
 
 
-### this 의 특징
+
+#### this 의 특징
 - 객체 자신에 대한 참조값을 가진다. (자기 자신을 가리킨다.)
 - 메소드 내에서만 사용된다.
 - 객체 자신을 메소드에 전달하거나 리턴하기 위해 사용된다.
@@ -38,9 +37,8 @@
 
 	
 	
-	
-- Function.prototype.call`javascript`
-- Function.prototype.apply
-- Function.prototype.bind
+## 	Function.prototype.call`javascript`
+## Function.prototype.apply
+## Function.prototype.bind
 
 <br>
