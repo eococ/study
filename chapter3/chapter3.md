@@ -23,6 +23,34 @@
  
  
 #### 1. 일반 함수 실행 방식
+첫 번째로, 일반 함수 실행 방식으로 함수를 실행했을 때 this의 값은 Global Object를 가리킨다. 즉, 브라우저 상에서는 window 객체를 말한다.
+일반 함수 실행 방식이란 아래 예제 코드처럼 우리가 함수를 선언한 후, 실행할 때 흔히 사용하는 방식을 말한다.
+
+```javascript
+function foo() {
+	console.log(this);
+}
+foo();
+```
+
+위 코드에서 foo(); 로 호출하는 방식을 일반 함수 실행 방식이라고 한다. 이 때, foo 함수 안에 있는 this는 글로벌 객체, 브라우저 상에서는 <br>
+window 객체를 가리킨다.
+
+```javascript
+	var name = 'julia';
+	function foo () {
+		console.log(this.name); 
+	}
+```
+
+위 코드에서 전역 변수로 name이란 변수를 만들고 julia이라는 값을 할당하였다. 이 변수는 전역 변수이기 때문에 전역 객체인 window에 속성으로 추가된다.
+즉, 우리가 var name='julia';라는 코드를 쓰면 window 객체에 name이라는 key와 julia라는 value가 추가된다.
+
+그리고, 일반 함수 실행 방식으로 foo라는 함수를 실행하였다. 이 때의 this는 window의 객체를 가리키므로 위 코드에서 __console.log(this.name)__; 은 <br>
+console.log(window.name);이라고 한 것과 동일하다. 그러므로 위 코드를 실행하면 console 창에는 'julia'가 출력된다.
+
+
+
 
 
 
