@@ -11,11 +11,56 @@
 
 		/**
 			Array.prototype.indexOf()
-			호출한 String 객체에서 주어진 값과 일치하는 첫번째 인덱스를 반환한다. 일치하는 값이 없으면
-			-1을 반환한다.
-				- 대소문자 구분함
-				
+			indexOf() 메서드는 배열에서 지정된 요소를 찾을 수 있는 첫 번째 인덱스를 반환하고 존재하지 않으면 -1을 반환한다.
+			
+			구문) arr.indexOf(searchElement[, fromIndex])
+			매개변수) searchElement : 배열에서 찾을 요소
+					  fromIndex : 검색을 시작할 색인. 인덱스가 배열의 길이보다 크거나 같은 경우 -1이 반환되므로 배열이 검색되지 않는다.
+					  			  계산된 인덱스가 0보다 작으면 전체 배열이 검색된다. 기본값 : 0
+			반환 값 ) 배열 내의 요소의 최초의 인덱스. 발견되지 않으면 -1
 		*/	
+		
+		// indexOf 사용하여 배열의 값 찾기
+		var array = [1,4,2,4,3,3,4,5];
+		console.log(array.indexOf(2));
+		console.log(array.indexOf(7));
+		console.log(array.indexOf(3,6));  //-1
+		console.log(array.indexOf(3,5));  //5
+		console.log(array.indexOf(5,3)); //7
+		console.log(array.indexOf(4,4)); //6
+		
+		
+		//Q : 배열 ['a','b','c','a','e','a','g'];에 대해 a가 있을 경우의 인덱스만 반환한다.
+		var arr = ['a','b','c','a','e','a','g'];
+		var element = 'a';
+		var arrNew = [];
+		var idx = arr.indexOf('a');
+		while(idx != -1){
+			arrNew.push(idx);
+			idx = arr.indexOf(element, idx + 1);
+		}
+			console.log(arrNew);
+		
+			
+		//Q : 요소가 배열에 존재하는지 확인하고 배열을 업데이트
+		var veggies = ['potato','tomato','green-pepper','bean'];
+		
+		function updateVegetables(veggies, veggie){
+			if(veggies.indexOf(veggie) === -1){
+				veggies.push(veggie);
+				console.log("새로운 veggies : ", veggies);
+			} else if(veggies.indexOf(veggie) > -1){
+				console.log(veggie, "는 이미 존재합니다.");
+			}
+		}
+		
+		updateVegetables(veggies, 'spinach');
+		updateVegetables(veggies, 'tomato');
+		
+		
+		/**
+		*  참고) String.prototype.indexOf
+		*/
 		var str = 'happy new year';
 		var result = str.indexOf('a');
 		var result2 = str.indexOf('new');
@@ -40,9 +85,10 @@
 			Array.prototype.slice()
 			slice() 메서드는 어떤 배열의 begin부터 end까지 (end 미포함)에 대한 얕은 복사본을
 			새로운 배열 객체로 반환한다. 원본 배열은 바뀌지 않는다.
+			
 		*/
 		
-		const animals = ['ant','bison','camel','duck','elephant'];
+	//	const animals = [{'a','b'},'bison','camel','duck','elephant'];
 		//output : camel,duck,elephant
 		console.log(animals.slice(2));
 		//output : camel,duck
@@ -55,8 +101,7 @@
 		console.log(animals.slice(2, -1));
 		//output : ant,bison, camel, duck, elephant
 		console.log(animals.slice());
-		
-		
+
 		
 		/**
 			Array.prototype.splice()
@@ -186,11 +231,11 @@
 			 function의 결과를 return 해주지 않는다. forEach의 return 값은 undefined다.
 			 forEach는 throw(예외)를 발생시키지 않으면 중간에 반복을 종료할 수 없다. 
 		*/	
-		var arr = [1,2,3];
+		var arr = [5,6,7];
 		
 		var result = arr.forEach(num => console.log("forEach : " + num));
 		
-		arr.forEach(function(number){
+		arr.forEach(function(number,idx){
 			console.log("number " + number);
 		});
 		
