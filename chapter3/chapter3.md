@@ -118,6 +118,8 @@ console.log(window.name);이라고 한 것과 동일하다. 그러므로 위 코
 	
 ````
 
+<br><br>
+
 #### this 의 특징
 - 객체 자신에 대한 참조값을 가진다. (자기 자신을 가리킨다.)
 - 메소드 내에서만 사용된다.
@@ -127,7 +129,7 @@ console.log(window.name);이라고 한 것과 동일하다. 그러므로 위 코
 - static 메소드에서는 사용할 수 없다.
 	
 
-	
+<br><br><br><br>	
 	
 ## 	Function.prototype.call`javascript` / Function.prototype.apply / Function.prototype.bind
 `call`과 `apply` 메서드는 기본적으로 함수를 호출하는 역할을 한다. 그렇다면 기존 함수호출과의 차이점은 무엇일까?
