@@ -164,7 +164,7 @@ console.log(window.name);이라고 한 것과 동일하다. 그러므로 위 코
 요소들이 값으로 전달된다.
 
 
-```jsvsscript
+```jsvascript
 	var array = ['a','b'];
 	var elements = [0,1,2];
 	array.push.apply(array, elements);
