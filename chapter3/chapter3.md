@@ -81,6 +81,7 @@ console.log(window.name);이라고 한 것과 동일하다. 그러므로 위 코
 		console.log(this.age);
 	}
 	var age = 100;
+	
 	var ken = {
 		age : 10,
 		foo : foo
@@ -101,6 +102,22 @@ console.log(window.name);이라고 한 것과 동일하다. 그러므로 위 코
 	
 ```
 
+#### 생성자 함수 내부에서 this는 생성자 함수가 생성할 인스턴스와 바인딩 된다.
+
+````javascript
+	function person(){
+		this.firstName = "jimin",
+		this.lastname = "Kim",
+		this.start = function(){
+			console.log(this.firstName + "drives a car");
+		}
+	}
+	
+	var person1 = new person();
+	console.log(person1); // jimin drives a car
+	
+````
+
 #### this 의 특징
 - 객체 자신에 대한 참조값을 가진다. (자기 자신을 가리킨다.)
 - 메소드 내에서만 사용된다.
@@ -112,21 +129,64 @@ console.log(window.name);이라고 한 것과 동일하다. 그러므로 위 코
 
 	
 	
-## 	Function.prototype.call`javascript`
+## 	Function.prototype.call`javascript` / Function.prototype.apply / Function.prototype.bind
+`call`과 `apply` 메서드는 기본적으로 함수를 호출하는 역할을 한다. 그렇다면 기존 함수호출과의 차이점은 무엇일까?
+그것은 바로, 해당 메서드를 사용해 함수를 '실행'하면 함수의 첫번째 인자로 전달하는 객체에 `this`를 바인딩 할 수 있다는 것이다.
+이를 통해서 유사 배열 `arguments` 객체에 배열 메서드를 사용할 수 있다. 반면에 `bind`는 첫 번째 인자를 `this`에 바인딩하지만, 
+함수를 실행하지 않으며, 새로운 함수를 반환한다
+<br><br>
+
+##### Call
+
+`call`을 사용하면, 함수를 실행하고 함수의 첫 번쨰 인자로 전달하는 값에 this를 바인딩한다.
+
 ```javascript
-	var age = 100;
-	function foo(){
-		console.log(this.age);
+	function logName(a,b,c){
+		console.log(this.name);
+		console.log(this.nationality);
+		console.log(a + b + c );
 	}
 	
-	var ken = {
-		age : 30,
-		log : foo
+	var person = {
+		name : 'jimin',
+		nationality : 'south korea'
 	}
-	foo.call(ken, 1,2,3);
+	
+	logName.call(person, 1,2,3); //jimin south korea 6
+	
 ```
 
-## Function.prototype.apply
-## Function.prototype.bind
+##### Apply
+`apply`를 사용하면 함수를 실행하고 함수의 첫 번째 인자로 전달하는 값에 `this`를 바인딩한다.
+`call`과의 차이점은 인자를 배열의 형태로 전달한다는 것이다. 이 떄, 인자로 배열 자체가 전달하는 것이 아니라 배열의
+요소들이 값으로 전달된다.
 
-<br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
