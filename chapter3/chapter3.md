@@ -46,7 +46,7 @@ window 객체를 가리킨다.
 위 코드에서 전역 변수로 name이란 변수를 만들고 julia이라는 값을 할당하였다. 이 변수는 전역 변수이기 때문에 전역 객체인 window에 속성으로 추가된다.
 즉, 우리가 var name='julia';라는 코드를 쓰면 window 객체에 name이라는 key와 julia라는 value가 추가된다.
 
-그리고, 일반 함수 실행 방식으로 foo라는 함수를 실행하였다. 이 때의 this는 window의 객체를 가리키므로 위 코드에서 __console.log(this.name)__; 은 <br>
+그리고, 일반 함수 실행 방식으로 foo라는 함수를 실행하였다. 이 때의 this는 window의 객체를 가리키므로 위 코드에서 __console.log(this.name)__; 은 
 console.log(window.name);이라고 한 것과 동일하다. 그러므로 위 코드를 실행하면 console 창에는 'julia'가 출력된다.
 
 
