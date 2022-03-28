@@ -160,7 +160,7 @@ console.log(window.name);이라고 한 것과 동일하다. 그러므로 위 코
 
 ##### Apply
 `apply`를 사용하면 함수를 실행하고 함수의 첫 번째 인자로 전달하는 값에 `this`를 바인딩한다.
-`call`과의 차이점은 인자를 배열의 형태로 전달한다는 것이다. 이 떄, 인자로 배열 자체가 전달하는 것이 아니라 배열의
+`call`과의 차이점은 인자를 배열의 형태로 전달한다는 것이다. 이 때, 인자로 배열 자체가 전달하는 것이 아니라 배열의
 요소들이 값으로 전달된다.
 
 
@@ -169,6 +169,49 @@ console.log(window.name);이라고 한 것과 동일하다. 그러므로 위 코
 	var elements = [0,1,2];
 	array.push.apply(array, elements);
 	console.info(array);
+	
+```
+
+
+##### bind
+bind() 메소드가 호출되면 새로운 함수를 생성한다. 받게되는 첫 인자의 value로는 `this` 키워드를 설정하고, 다음 인자들은 바인드된 함수의 인수에 제공된다.
+
+```javascript
+var module = {
+	x : 42,
+	getX : function(){
+		return this.x;
+	}
+}
+
+var unboundGetX = module.getX; //undefined
+
+var boundGetX = unboundGetX.bind(module); // 42
+
+```
+
+`bind()`의 가장 간단한 사용법은 호출 방법과 관계없이 특정 `this` 값으로 호출되는 함수를 만드는 것이다. 흔히 발생하는 실수를 예제로 들어보자. 객체로부터 메소드를 추출한 뒤 그 함수를 호출할 때, 원본 객체가 그 함수의 `this`로 사용될 것이다 기대하는 것이다. 그러나 특별한 조치가 없으면 대부분의 경우 원본 객체를 손실된다. 원본 객체가 바인딩 되는 함수를 생성하면 이러한 문제를 해결할 수 있다.
+
+```javascript
+	this.x = 9;
+	var module = {
+		x : 81,
+		getX = function(){
+			return this.x;
+		}
+	};
+	
+	module.getX(); //81
+	
+	var retrieveX = module.getX;
+	retrieveX(); // 9 반환 - 함수가 전역  스코프에서 호출됐음
+	
+	//module과 바인딩된 'this'가 있는 새로운 함수 생성
+	//전역 변수 x와 module의 속성 x 혼동 주의!
+	var boundGetX : retrieveX.bind(module);
+	boundGetX(); // 81
+	
+	
 	
 ```
 
