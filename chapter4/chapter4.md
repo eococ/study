@@ -47,7 +47,7 @@ __객체의 구성 요소__
 - 기능(function)
 	메서드(method), 함수(functino), 행위(behavior)
 
-[img](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2F3IrmW%2Fbtq5TrTxCrB%2FNColiheECpA98LbijaT53K%2Fimg.png)
+![img](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2F3IrmW%2Fbtq5TrTxCrB%2FNColiheECpA98LbijaT53K%2Fimg.png)
 
 ```java
 	클래스명 변수명; //클래스의 객체를 참조하기 위한 참조변수를 선언
